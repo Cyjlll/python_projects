@@ -9,6 +9,8 @@
 import xlrd
 import xlwt
 from datetime import date,datetime
+import pprint
+
 
 file1 = '12'
 arr=[]
@@ -57,14 +59,45 @@ def cao():
 a_line=[]
 finallyy=[]
 def meiyihang(filename):
+
     content=xlrd.open_workbook(filename)
     first=content.sheet_by_index(0)
-    for i in range(5,first.nrows):
-        for k in first.row_values(i):
-            pass
+    i=5
+    while i<=142:
+        a_line.append(first.row_values(i))
+        total=33
+    # pprint.pprint(a_line)
+        while total<=62:
+            finallyy.append(first.row_values(i)[total])
+            total=total+1
+        i+=1
+    # pprint.pprint(finallyy)
+    last=[]
+    for fen in range(0,int(len(finallyy)),30):
+        c=finallyy[fen:fen+30]
+        last.append(c)
+    # return last
+    # print(last)
+
+
+def pushin(arr,kaishi,jieshu):
+    while kaishi<=jieshu:
+        # print(kaishi)
+
+        kaishi+=1
+
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
     # cao()
-    read_excel()
-    # meiyihang('six.xls')
+    # read_excel()
+    meiyihang('six.xls')
+    pushin(meiyihang('six.xls'),3,140)
+
+
