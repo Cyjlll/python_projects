@@ -23,19 +23,19 @@ def read_excel():
     # print(sheet1.ncols)
     rows = sheet1.row_values(2)#获取行内容
     cols = sheet1.col_values(3)#获取列内容
-    for i in range(0,sheet1.ncols):
+    for i in range(0,sheet1.nrows):
         # 把每一列的内容加入数组
-        arr.append(sheet1.col_values(i))
+        arr.append(sheet1.row_values(i))
         # print(sheet1.col_values(i))
         # print(cols)
         # print(sheet1.cell(1,0).value)
     print(arr)
-    for a in arr:
+    # for a in arr:
         # result=','.join(a)
         # print(a)
-        for j in a:
-            arr1.append(j)
-    print(arr1)
+        # for j in a:
+        #     arr1.append(j)
+    # print(arr1)
     # result=','.join(arr1)
     # print(result)
 
@@ -55,16 +55,16 @@ def cao():
     print(yujie)
 
 a_line=[]
+finallyy=[]
 def meiyihang(filename):
     content=xlrd.open_workbook(filename)
     first=content.sheet_by_index(0)
     for i in range(5,first.nrows):
-        # for k in first.row_values(i):
-        a_line.append(first.row_values(i))
-    print(a_line)
+        for k in first.row_values(i):
+            pass
 
 
 if __name__ == '__main__':
     # cao()
-    # read_excel()
-    meiyihang('six.xls')
+    read_excel()
+    # meiyihang('six.xls')
