@@ -12,7 +12,6 @@ from pywinauto.application import Application
 from pywinauto.keyboard import send_keys
 from pywinauto import mouse
 from pywinauto import application
-import pyautogui
 import os
 
 # try:
@@ -36,3 +35,14 @@ import os
 # os.rename(oldfile,newfile)
 # print(os.path.join('C:/Users/Administrator/Desktop/更新/','123.jpg'))
 # print(newfile)
+
+one=[]
+two=[]
+yi=0
+er=2
+print(type(yi))
+one.append(yi)
+one.append(er)
+two.append(er)
+print(one)
+print(two)

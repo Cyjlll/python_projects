@@ -13,7 +13,7 @@ import xlwt
 import xlrd
 from xlutils.copy import copy
 
-oldWb = xlrd.open_workbook(r"D:\python项目\other_projects\first.xls",'w+b')
+oldWb = xlrd.open_workbook(r"D:\python\github_clone\other_projects\first.xls",'w+b')
 #先打开已存在的表
 newWb = copy(oldWb)
 #复制
@@ -21,7 +21,7 @@ newWs = newWb.get_sheet(1)
 #取sheet表
 newWs.write(2,6, label = 'diyige')
 #下标从零开始，写入第六列第二行写入内容
-newWb.save("D:\python项目\other_projects\end.xls")
+newWb.save("D:\python\github_clone\other_projects\end.xls")
 #保存至result路径
 
 # # 创建一个workbook 设置编码
