@@ -83,7 +83,7 @@ def meiyihang(filename,zonggong):
     # print(last)
     # pprint.pprint(last)
 
-
+# 计算有多少行
 def pushin(arr,kaishi,jieshu):
     while kaishi<=jieshu:
         # print(kaishi)
@@ -91,12 +91,12 @@ def pushin(arr,kaishi,jieshu):
         kaishi+=1
 
 def putnumber():
-    yigongarr=[]
-    lianjiaarr=[]
-    peichanjiaarr=[]
-    lianjia=0
-    peichanjia=0
     i=0
+    yigongarr=[]
+    nianjiaarr=[]
+    peichanjiaarr=[]
+    nianjia=0
+    peichanjia=0
     linshi=meiyihang('six.xls',143)
     # 每一行
     # for i in linshi:
@@ -119,16 +119,30 @@ def putnumber():
         # if '陪产假' in linshi[i]:
         #     peichanjia+=1
         # peichanjiaarr.append(peichanjia)
-        print(linshi[i])
+        nianjia=0
+        peichanjia=0
+        for neirong in linshi[i]:
+            if "年假" in str(neirong):
+                nianjia+=1
+            if "陪产假" in str(neirong):
+                peichanjia+=1
+
+        nianjiaarr.append(nianjia)
+        peichanjiaarr.append(peichanjia)
         i+=1
+        yigongarr=[nianjiaarr,peichanjiaarr]
+
+    print(yigongarr)
 
 
 
 
 
-def writein():
+
+
+def writein(adss,adse):
     liangge=putnumber()
-    oldWb = xlrd.open_workbook(r"D:\python\github_clone\other_projects\first.xls",'w+b')
+    oldWb = xlrd.open_workbook(adss)
     #先打开已存在的表
     newWb = copy(oldWb)
     #复制
@@ -148,7 +162,7 @@ def writein():
         c+=1
         print(c)
 
-    newWb.save("D:\python\github_clone\other_projects\end.xls")
+    newWb.save(adse)
     #保存至result路径
 
 
