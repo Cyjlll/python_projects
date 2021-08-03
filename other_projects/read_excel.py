@@ -11,6 +11,7 @@ import xlwt
 from datetime import date,datetime
 import pprint
 import xlsxwriter
+from xlutils.copy import copy
 
 file1 = '12'
 arr=[]
@@ -60,7 +61,6 @@ a_line=[]
 finallyy=[]
 # 要读取的文件和里面总共有多少行
 def meiyihang(filename,zonggong):
-
     content=xlrd.open_workbook(filename)
     first=content.sheet_by_index(0)
     # 从第5行到最后一行的遍历
@@ -79,8 +79,9 @@ def meiyihang(filename,zonggong):
     for fen in range(0,int(len(finallyy)),30):
         c=finallyy[fen:fen+30]
         last.append(c)
-    # return last
-    print(last)
+    return last
+    # print(last)
+    # pprint.pprint(last)
 
 
 def pushin(arr,kaishi,jieshu):
@@ -89,18 +90,76 @@ def pushin(arr,kaishi,jieshu):
 
         kaishi+=1
 
+def putnumber():
+    yigongarr=[]
+    lianjiaarr=[]
+    peichanjiaarr=[]
+    lianjia=0
+    peichanjia=0
+    i=0
+    linshi=meiyihang('six.xls',143)
+    # 每一行
+    # for i in linshi:
+    #     for j in i:
+    #         if "年假" in j:
+    #             lianjia+=1
+    #
+    #         elif "陪产假" in j:
+    #             peichanjia+=1
+    #     lianjiaarr.append(lianjia)
+    #     peichanjiaarr.append(peichanjia)
+    #     lianjia=0
+    #     peichanjia=0
+    # print(lianjiaarr)
+
+    while i<=143:
+        # if '年产假' in linshi[i]:
+        #     lianjia+=1
+        # lianjiaarr.append(lianjia)
+        # if '陪产假' in linshi[i]:
+        #     peichanjia+=1
+        # peichanjiaarr.append(peichanjia)
+        print(linshi[i])
+        i+=1
 
 
 
 
 
+def writein():
+    liangge=putnumber()
+    oldWb = xlrd.open_workbook(r"D:\python\github_clone\other_projects\first.xls",'w+b')
+    #先打开已存在的表
+    newWb = copy(oldWb)
+    #复制
+    newWs = newWb.get_sheet(1)
+    #取sheet表
+    # 年假
+    y=2
+    x=6
+    c=2
+    j=7
+    for i in liangge[0]:
+        newWs.write(y,x, label = i)
+        y+=1
+        print(y)
+    for j in liangge[1]:
+        newWs.write(c,j, label = j)
+        c+=1
+        print(c)
+
+    newWb.save("D:\python\github_clone\other_projects\end.xls")
+    #保存至result路径
 
 
 
 if __name__ == '__main__':
     # cao()
     # read_excel()
+    # 一共有多少行数
     meiyihang('six.xls',143)
     # pushin(meiyihang('six.xls'),3,140)
+    putnumber()
+    # writein()
 
 
