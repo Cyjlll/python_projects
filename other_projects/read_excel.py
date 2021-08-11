@@ -76,7 +76,10 @@ def meiyihang(filename,zonggong):
         i+=1
     # pprint.pprint(finallyy)
     last=[]
+    # 首。尾。步长,
     for fen in range(0,int(len(finallyy)),30):
+        print(fen)
+        # 把每隔30个的数据，取这个数组中下标几到几的数据，最后再放到一个大数组
         c=finallyy[fen:fen+30]
         last.append(c)
     return last
@@ -97,7 +100,7 @@ def putnumber():
     peichanjiaarr=[]
     nianjia=0
     peichanjia=0
-    linshi=meiyihang('six.xls',143)
+    linshi=meiyihang('seven.xls',146)
     # 每一行
     # for i in linshi:
     #     for j in i:
@@ -112,7 +115,7 @@ def putnumber():
     #     peichanjia=0
     # print(lianjiaarr)
 
-    while i<=143:
+    while i<=140:
         # if '年产假' in linshi[i]:
         #     lianjia+=1
         # lianjiaarr.append(lianjia)
@@ -131,38 +134,38 @@ def putnumber():
         peichanjiaarr.append(peichanjia)
         i+=1
         yigongarr=[nianjiaarr,peichanjiaarr]
-
-    print(yigongarr)
-
-
+    # print(peichanjiaarr)
+    return yigongarr
 
 
 
 
 
-def writein(adss,adse):
+
+
+def writein():
     liangge=putnumber()
-    oldWb = xlrd.open_workbook(adss)
+    oldWb = xlrd.open_workbook(r"D:\python\github_clone\other_projects\first2.xls")
     #先打开已存在的表
     newWb = copy(oldWb)
     #复制
     newWs = newWb.get_sheet(1)
     #取sheet表
     # 年假
-    y=2
-    x=6
+    x=2
+    y=6
     c=2
-    j=7
+    p=7
     for i in liangge[0]:
-        newWs.write(y,x, label = i)
-        y+=1
-        print(y)
+        newWs.write(x,y, label = i)
+        x+=1
+        # print(y)
     for j in liangge[1]:
-        newWs.write(c,j, label = j)
+        newWs.write(c,p, label = j)
         c+=1
-        print(c)
+        # print(c)
 
-    newWb.save(adse)
+    newWb.save("D:\python\github_clone\other_projects\end2.xls")
     #保存至result路径
 
 
@@ -171,9 +174,7 @@ if __name__ == '__main__':
     # cao()
     # read_excel()
     # 一共有多少行数
-    meiyihang('six.xls',143)
+    meiyihang('seven.xls',146)
     # pushin(meiyihang('six.xls'),3,140)
     putnumber()
-    # writein()
-
-
+    writein()
