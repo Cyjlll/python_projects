@@ -16,7 +16,7 @@ def get_md5(str1):
 
 
 if __name__ == '__main__':
-    print(get_md5('jakjadmin'))
+    print(get_md5('admin'))
 
 
 
@@ -26,6 +26,6 @@ if __name__ == '__main__':
 #     return sh.hexdigest()
 #
 # if __name__ == "__main__":
-#     pwd = jia_mi("jakjadmin")
+#     pwd = jia_mi("admin")
 #     print(pwd)
 
