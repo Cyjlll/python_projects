@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="appium_test" />
     <orderEntry type="module" module-name="appium_test2" />
+    <orderEntry type="module" module-name="huanghuang" />
   </component>
 </module>

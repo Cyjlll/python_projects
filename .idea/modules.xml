@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$USER_HOME$/Desktop/appium_test/.idea/appium_test.iml" filepath="$USER_HOME$/Desktop/appium_test/.idea/appium_test.iml" />
       <module fileurl="file://$USER_HOME$/Desktop/appium_test2/.idea/appium_test2.iml" filepath="$USER_HOME$/Desktop/appium_test2/.idea/appium_test2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../huanghuang/.idea/huanghuang.iml" filepath="$PROJECT_DIR$/../huanghuang/.idea/huanghuang.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/python projects.iml" filepath="$PROJECT_DIR$/.idea/python projects.iml" />
     </modules>
   </component>
