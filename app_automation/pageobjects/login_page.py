@@ -32,9 +32,9 @@ class LoginPage(BasePage):
     serverport=(MobileBy.ID,'com.icarvisions.iCarView:id/login_edittext_server')
     loginbutton=(MobileBy.ID,'com.icarvisions.iCarView:id/lyLogin_tvSave')
 
-    def login(self):
-        self.input(*self.user_name,'YJ')
-        self.input(*self.passwd,'aaa123@@')
-        self.input(*self.serverport,'47.119.170.216:8080')
+    def login(self,zhanghao,mima,fuwuqi):
+        self.input(*self.user_name,zhanghao)
+        self.input(*self.passwd,mima)
+        self.input(*self.serverport,fuwuqi)
         self.click(*self.loginbutton)
         

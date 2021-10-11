@@ -24,14 +24,14 @@ from appium.webdriver.common.mobileby import MobileBy
 
 
 class BasePage:
-    # pass
-    # device_info={}
-    # device_info['platformName']='Android'#系统名称
-    # device_info['platformVersion']='5.1.1'#系统版本号
-    # device_info['appPackage']='com.icarvisions.iCarView'#app包名
-    # device_info['appActivity']='net.babelstar.cmsv6.view.LoginActivity'#app入口的activity
-    # device_info['deviceName']='Android Emulator'#设备名称
-    # driver=webdriver.Remote('http://127.0.0.1:4723/wd/hub',device_info)
+    pass
+    device_info={}
+    device_info['platformName']='Android'#系统名称
+    device_info['platformVersion']='5.1.1'#系统版本号
+    device_info['appPackage']='com.icarvisions.iCarView'#app包名
+    device_info['appActivity']='net.babelstar.cmsv6.view.LoginActivity'#app入口的activity
+    device_info['deviceName']='Android Emulator'#设备名称
+    driver=webdriver.Remote('http://127.0.0.1:4723/wd/hub',device_info)
 
 
 # 每次使用这个类时都会使用到这个构造函数
