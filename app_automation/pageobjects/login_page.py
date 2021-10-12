@@ -33,8 +33,8 @@ class LoginPage(BasePage):
     loginbutton=(MobileBy.ID,'com.icarvisions.iCarView:id/lyLogin_tvSave')
 
     def login(self,zhanghao,mima,fuwuqi):
-        self.input(*self.user_name,zhanghao)
-        self.input(*self.passwd,mima)
-        self.input(*self.serverport,fuwuqi)
-        self.click(*self.loginbutton)
+        self.input(self.user_name,zhanghao)
+        self.input(self.passwd,mima)
+        self.input(self.serverport,fuwuqi)
+        self.click(self.loginbutton)
         

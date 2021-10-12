@@ -25,7 +25,7 @@ import pytest
 
 class Testlogin:
     # 先导入这个页面的类，然后再实例化
-    def test_login(self):
+    def setup(self):
         device_info={}
         device_info['platformName']='Android'#系统名称
         device_info['platformVersion']='5.1.1'#系统版本号
@@ -33,8 +33,9 @@ class Testlogin:
         device_info['appActivity']='net.babelstar.cmsv6.view.LoginActivity'#app入口的activity
         device_info['deviceName']='Android Emulator'#设备名称
         driver=webdriver.Remote('http://127.0.0.1:4723/wd/hub',device_info)
-        login_page=LoginPage(driver=driver)
-        login_page.login('YJ','aaa123@@','47.119.170.216:8080')
+    def test_login(self):
+        login_page=LoginPage(driver=self.driver)
+        login_page.login("YJ","aaa123@@","47.119.170.216:8080")
 
 if __name__ == '__main__':
     pytest.main()
