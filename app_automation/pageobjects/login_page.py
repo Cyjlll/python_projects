@@ -27,10 +27,10 @@ from appium.webdriver.common.mobileby import MobileBy
 # 继承base页面里的方法
 class LoginPage(BasePage):
     # 特有的一些元素定位
-    user_name=(MobileBy.ID,'com.icarvisions.iCarView:id/login_editview_account')
-    passwd=(MobileBy.ID,'com.icarvisions.iCarView:id/login_edittext_pwd')
-    serverport=(MobileBy.ID,'com.icarvisions.iCarView:id/login_edittext_server')
-    loginbutton=(MobileBy.ID,'com.icarvisions.iCarView:id/lyLogin_tvSave')
+    user_name=(MobileBy.ID,"com.icarvisions.iCarView:id/login_editview_account")
+    passwd=(MobileBy.ID,"com.icarvisions.iCarView:id/login_edittext_pwd")
+    serverport=(MobileBy.ID,"com.icarvisions.iCarView:id/login_edittext_server")
+    loginbutton=(MobileBy.ID,"com.icarvisions.iCarView:id/lyLogin_tvSave")
 
     def login(self,zhanghao,mima,fuwuqi):
         self.input(self.user_name,zhanghao)

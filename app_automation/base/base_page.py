@@ -25,12 +25,14 @@ from appium.webdriver.common.mobileby import MobileBy
 
 class BasePage:
     pass
-    device_info={}
-    device_info['platformName']='Android'#系统名称
-    device_info['platformVersion']='5.1.1'#系统版本号
-    device_info['appPackage']='com.icarvisions.iCarView'#app包名
-    device_info['appActivity']='net.babelstar.cmsv6.view.LoginActivity'#app入口的activity
-    device_info['deviceName']='Android Emulator'#设备名称
+    device_info={
+    "platformName":"Android",    #系统名称
+    "platformVersion":"5.1.1",     #系统版本号
+    "appPackage" : "com.icarvisions.iCarView",    #app包名
+    "appActivity":"net.babelstar.cmsv6.view.LoginActivity",#app入口的activity
+    "deviceName":"Android Emulator"#设备名称
+    }
+
     driver=webdriver.Remote('http://127.0.0.1:4723/wd/hub',device_info)
 
 
@@ -40,12 +42,11 @@ class BasePage:
 
 # 封装定位方法
     def locator(self,loc):
-        # 解元组
+         # 解元组
         return self.driver.find_element(*loc)
     # 输入方法
     def input(self,loc,value):
         self.locator(loc).send_keys(value)
-#     点击方法
     def click(self,loc):
         self.locator(loc).click()
 

@@ -23,19 +23,21 @@ from appium.webdriver.common.mobileby import MobileBy
 from app_automation.pageobjects.login_page import LoginPage
 import pytest
 
-class Testlogin:
+class Testlogin(unittest.TestCase):
+
     # 先导入这个页面的类，然后再实例化
-    def setup(self):
-        device_info={}
-        device_info['platformName']='Android'#系统名称
-        device_info['platformVersion']='5.1.1'#系统版本号
-        device_info['appPackage']='com.icarvisions.iCarView'#app包名
-        device_info['appActivity']='net.babelstar.cmsv6.view.LoginActivity'#app入口的activity
-        device_info['deviceName']='Android Emulator'#设备名称
-        driver=webdriver.Remote('http://127.0.0.1:4723/wd/hub',device_info)
     def test_login(self):
-        login_page=LoginPage(driver=self.driver)
+        device_info={
+            "platformName":"Android",    #系统名称
+            "platformVersion":"5.1.1",     #系统版本号
+            "appPackage" : "com.icarvisions.iCarView",    #app包名
+            "appActivity":"net.babelstar.cmsv6.view.LoginActivity",#app入口的activity
+            "automationName": "UIAutomator1",
+            "deviceName":"Android Emulator"#设备名称
+        }
+        driver=webdriver.Remote('http://127.0.0.1:4723/wd/hub',device_info)
+        login_page=LoginPage(driver=driver)
         login_page.login("YJ","aaa123@@","47.119.170.216:8080")
 
 if __name__ == '__main__':
-    pytest.main()
+    unittest.main()
