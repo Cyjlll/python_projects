@@ -23,10 +23,10 @@ from appium.webdriver.common.mobileby import MobileBy
 from app_automation.pageobjects.login_page import LoginPage
 import pytest
 
-class Testlogin(unittest.TestCase):
+class Test_class(object):
 
     # 先导入这个页面的类，然后再实例化
-    def test_login(self):
+    def test_oen(self):
         device_info={
             "platformName":"Android",    #系统名称
             "platformVersion":"5.1.1",     #系统版本号
@@ -40,4 +40,4 @@ class Testlogin(unittest.TestCase):
         login_page.login("YJ","aaa123@@","47.119.170.216:8080")
 
 if __name__ == '__main__':
-    unittest.main()
+    pytest.main()

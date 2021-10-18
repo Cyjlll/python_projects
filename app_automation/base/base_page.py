@@ -24,7 +24,6 @@ from appium.webdriver.common.mobileby import MobileBy
 
 
 class BasePage:
-    pass
     device_info={
     "platformName":"Android",    #系统名称
     "platformVersion":"5.1.1",     #系统版本号
