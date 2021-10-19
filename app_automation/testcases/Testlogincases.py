@@ -22,11 +22,10 @@ from app_automation.base.base_page import BasePage
 from appium.webdriver.common.mobileby import MobileBy
 from app_automation.pageobjects.login_page import LoginPage
 import pytest
+import requests
 
-class Test_class(object):
-
-    # 先导入这个页面的类，然后再实例化
-    def test_oen(self):
+class Test_class(unittest.TestCase):
+    def setUp(self) -> None:
         device_info={
             "platformName":"Android",    #系统名称
             "platformVersion":"5.1.1",     #系统版本号
@@ -35,9 +34,26 @@ class Test_class(object):
             "automationName": "UIAutomator1",
             "deviceName":"Android Emulator"#设备名称
         }
-        driver=webdriver.Remote('http://127.0.0.1:4723/wd/hub',device_info)
-        login_page=LoginPage(driver=driver)
+        self.driver=webdriver.Remote('http://127.0.0.1:4723/wd/hub',device_info)
+        self.driver.implicitly_wait(5)
+
+    # 先导入这个页面的类，然后再实例化
+    def test_oen(self):
+        login_page=LoginPage(driver=self.driver)
         login_page.login("YJ","aaa123@@","47.119.170.216:8080")
+        respones=requests.post('http://192.168.168.9:8080/LoginAction_loginMobile.action?update=gViewerAndroid&server=login&userAccount=1322&password=000000&languages=cn')
+        try:
+            self.assertEqual(respones.status_code,200)
+        except:
+            raise Exception('登陆失败')
+        time.sleep(5)
+
+
+    def tearDown(self) -> None:
+        self.driver.quit()
+        print('测试完成')
+
+
 
 if __name__ == '__main__':
-    pytest.main()
+    unittest.main()

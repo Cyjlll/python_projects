@@ -30,7 +30,9 @@ class login(unittest.TestCase):
         self.driver.find_element_by_id('com.icarvisions.iCarView:id/login_edittext_server').send_keys('192.168.168.9:8080')
         self.driver.find_element_by_id('com.icarvisions.iCarView:id/lyLogin_tvSave').click()
         respones=requests.post('http://192.168.168.9:8080/LoginAction_loginMobile.action?update=gViewerAndroid&server=login&userAccount=1322&password=000000&languages=cn')
-        self.assertNotEqual(respones.text,'{"result":2}')
+        # self.assertNotEqual(respones.text,'{"result":2}')
+        print(respones.text)
+        print(respones.status_code)
         # time.sleep(6)
 
     def test2(self):

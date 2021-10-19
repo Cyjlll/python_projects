@@ -20,7 +20,7 @@ from selenium import webdriver
 from selenium.webdriver.support.select import Select
 from app_automation.base.base_page import BasePage
 from appium.webdriver.common.mobileby import MobileBy
-
+import requests
 
 
 # 登陆页面
@@ -37,4 +37,12 @@ class LoginPage(BasePage):
         self.input(self.passwd,mima)
         self.input(self.serverport,fuwuqi)
         self.click(self.loginbutton)
-        
+        # urlstr=(f'http://{fuwuqi}/LoginAction_loginMobile.action?update=gViewerAndroid&server=login&userAccount={zhanghao}&password={mima}&languages=cn')
+        # response=requests.post(urlstr)
+        # if response.status_code==200:
+        #     print('登陆成功')
+        # else:
+        #     print('登陆失败')
+        #     print(response.status_code)
+
+
