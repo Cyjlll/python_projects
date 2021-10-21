@@ -10,6 +10,10 @@ import unittest
 #放在python的安装目录下
 import HTMLTestRunner
 import time
+import os
+
+
+
 #指定扫描的用例文件，将匹配的文件批量执行
 #discover(参数1，参数2)
 ###参数1：被执行的文件路径   参数2：被执行的文件名字
