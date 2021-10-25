@@ -13,13 +13,7 @@ import time
 import pywinauto
 from pywinauto.keyboard import send_keys
 
+import time
 
-
-# app=application.Application(backend="uia").connect(handle=135168)
-# print(app)
-
-
-# app=application.Application(backend="uia").connect(handle=986922)
-
-app=application.Application(backend="uia").start(r"D:\Bin\QQScLauncher.exe")
-pywinauto.tests.allcontrols.AllControlsTest(windows)
+current_time=time.strftime("%y-%m-%d-%H-%M-%S",time.localtime(time.time()))
+print(current_time)

@@ -40,13 +40,20 @@ class Test_class(unittest.TestCase):
     # 先导入这个页面的类，然后再实例化
     def test_oen(self):
         login_page=LoginPage(driver=self.driver)
-        login_page.login("YJ","aaa123@@","47.119.170.216:8080")
+        # login_page.login("YJ1","aaa123@@","47.119.170.216:8080")
         respones=requests.post('http://192.168.168.9:8080/LoginAction_loginMobile.action?update=gViewerAndroid&server=login&userAccount=1322&password=000000&languages=cn')
         try:
-            self.assertEqual(respones.status_code,200)
+            # self.assertEqual(respones.status_code,200)
+            login_page.login("YJ","aaa123@@","47.119.170.216")
         except:
+            current_time=time.strftime("%y-%m-%d-%H-%M-%S",time.localtime(time.time()))
+            pic_path=("D:\python_projects\\app_automation\log"+current_time+".png")
+            self.driver.save_screenshot(pic_path)
             raise Exception('登陆失败')
-        time.sleep(5)
+        finally:
+            time.sleep(5)
+
+
 
 
     def tearDown(self) -> None:
